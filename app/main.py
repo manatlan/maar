@@ -59,14 +59,14 @@ class LocalPlayer(Tag.div):
         self._player=Tag.AUDIO(_controls=True,_autoplay=True,_type="audio/mpeg",_style={"width":"100%","font-size":"2em","background":"#EEE","pointer-events": "none"})
         self._player["onended"] = self.bind.next()
 
-        self._img = Tag.img(_class="cover",_onclick=self.bind(self.play_pause,f"document.getElementById('{id(self._player)}').paused".encode()),_title="play/pause",_style="flex: 0 1 auto;")
+        self._img = Tag.img(_class="cover",_onclick=self.bind(self.play_pause,f"document.getElementById('{id(self._player)}').paused".encode()),_title="play/pause",_style="flex: 0 0 60px;")
         self._ovol=Tag.span()
         
-        self._title=Tag.div("title",_style="flex: 0 0 400px")
-        self._btns=Tag.div("btns")
+        self._title=Tag.div("title",_style="flex: 0 0 auto;width:100%;")
+        self._btns=Tag.span("btns")
         self <= self._player
         
-        self <= Tag.div( self._img + self._title,_style="display:flex;flex-flow:row nowrap;width:100%")
+        self <= Tag.div( self._img + self._title,_style="display:flex;flex-flow:row nowrap;width:100%;overflow-x:hidden")
         
         self.change_volume()
         
@@ -149,13 +149,14 @@ class Paths(Tag.div):
                 if os.path.isdir( os.path.join(path,i) ):
                     folders.append( (i,os.path.join(path,i)) )
                 elif i.lower().endswith(".mp3"):
+                    #TODO: on android, listdir doesn't returns files ;-( ... WTF ? permissions ?
                     files.append( (i, os.path.join(path,i)) )
 
             olist=Tag.div()
             for i,fp in sorted(folders):
-                olist+= Tag.div( Tag.a( f"📂 {i}",path=fp,_onclick=lambda o: self.cb(o.path) ), _class="folder")
+                olist+= Tag.div( f"📂 {i}",path=fp,_onclick=lambda o: self.cb(o.path), _class="folder")
             for i,fp in sorted(files):
-                olist+= Tag.div( Tag.a(i,path=fp,_onclick=lambda o: self.cb(o.path)), _class="file")
+                olist+= Tag.div( i,path=fp,_onclick=lambda o: self.cb(o.path), _class="file")
 
             self.omain.clear()
             self.omain+= Tag.div(f"Folder <b>{path}</b> {len(files)}")
