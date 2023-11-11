@@ -14,7 +14,7 @@ presplash.filename = %(source.dir)s/maar.png
 icon.filename = %(source.dir)s/maar.png
 
 version = 0.1
-requirements = python3,kivy,tornado,htag,mutagen,pellow
+requirements = python3,kivy,tornado,htag,mutagen,Pillow
 
 orientation = portrait
 fullscreen = 0
