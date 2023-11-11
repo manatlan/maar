@@ -237,8 +237,3 @@ if __name__=="__main__":
 
     app.run()
 
-#=================================================================================
-# from htag.runners import DevApp as Runner
-# app=Runner(App)
-# if __name__=="__main__":
-#     app.run()
