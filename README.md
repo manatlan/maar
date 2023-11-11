@@ -4,9 +4,23 @@
 
 With python3's [htag](https://github.com/manatlan/htag) module.
 
-Android's Apk built thru the [htagapk recipe](https://github.com/manatlan/htagapk)
 
-Build the APK using "Actions > Build Apk > Run workflow", the package.zip(apk) is available after 11-to-13 minutes in the resulted process ;-)
+~~Android's Apk built thru the [htagapk recipe](https://github.com/manatlan/htagapk)
+Build the APK using "Actions > Build Apk > Run workflow", the package.zip(apk) is available after 11-to-13 minutes in the resulted process ;-)~~
+
+Does'nt work anymore ;-( ^^
+but I reach to make an apk using buidozer's docker, on my host ;-) (full tuto soon)
+
+in the `app` folder, with a console :
+```
+$ docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd buildozerm android debug
+$ adb uninstall org.manatlan.maar
+$ adb install -r bin/maar-0.1-arm64-v8a-debug.apk
+```
+note: `buildozerm` is my docker image
+
+But currently, the app doesn't work like on a desktop (file access troubles, display troubles ...) <- i'm working on this
+(it's unusable on an android device now !!!)
 
 ## notes
 
