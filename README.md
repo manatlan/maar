@@ -11,4 +11,4 @@ Build the APK using "Actions > Build Apk > Run workflow", the package.zip(apk) i
 This is a POC, just to see if the whole idea is OK.
 
 history:  I've got an android auto radio, with a 1280x480 (6.86") ... I don't like the current music player. So i try to replace it with something of my own.
-It's just to try if and android apk, using htag, can replace the current app.
+It's just to try if an android apk, using htag, can replace the current app.
