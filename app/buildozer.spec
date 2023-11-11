@@ -1,17 +1,17 @@
 [app]
 
-title = TriApp
-package.name = triapp
+title = MAAR
+package.name = marr
 package.domain = org.manatlan
 
 source.dir = .
 source.include_exts = py,png,jpg
 
 # (str) Presplash of the application
-presplash.filename = %(source.dir)s/triapp.png
+presplash.filename = %(source.dir)s/maar.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/triapp.png
+icon.filename = %(source.dir)s/maar.png
 
 version = 0.3
 requirements = python3,kivy,tornado,htbulma,htag,tinydb
