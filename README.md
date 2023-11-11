@@ -1,26 +1,14 @@
-# TriApp (tricount android clone)
+# MAAR (My Android Auto Radio)
 
 With python3's [htag](https://github.com/manatlan/htag) module.
 
 Android's Apk built thru the [htagapk recipe](https://github.com/manatlan/htagapk)
 
-<img src="app/triapp.png" width="100" height="100">
-
 Build the APK using "Actions > Build Apk > Run workflow", the package.zip(apk) is available after 11-to-13 minutes in the resulted process ;-)
 
-## Features
+## notes
 
- - easy access : auto re-open last opened trip
- - ability to make fair re-distribution (ability to ponderate "parts" for a payer)
- - more readable : ability to choose a color for a Payer
- - live view for closing the expenses
- 
-## Screenshots
+This is a POC, just to see if the whole idea is OK.
 
-<img src="shot1.jpg" width="250"> <img src="shot2.jpg" width="250" > <img src="shot3.jpg" width="250" >
-
-(screenshots don't show the latests version, which is a lot better ;-) )
-
-## Download
-
-[The APK](https://github.com/manatlan/TriApp/suites/8010500167/artifacts/343578779) (in the zipfile (13.5Mo))
+history:  I've got an android auto radio, with a 1280x480 (6.86") ... I don't like the current music player. So i try to replace it with something of my own.
+It's just to try if and android apk, using htag, can replace the current app.
