@@ -1,7 +1,7 @@
 [app]
 
 title = MAAR
-package.name = marr
+package.name = maar
 package.domain = org.manatlan
 
 source.dir = .
@@ -13,7 +13,7 @@ presplash.filename = %(source.dir)s/maar.png
 # (str) Icon of the application
 icon.filename = %(source.dir)s/maar.png
 
-version = 0.3
+version = 0.1
 requirements = python3,kivy,tornado,htag,mutagen,pellow
 
 orientation = portrait
