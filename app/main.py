@@ -23,6 +23,7 @@ VINYL="data:image/png;base64,/9j/4AAQSkZJRgABAQACWAJYAAD/2wBDAAgGBgcGBQgHBwcJCQg
 PLAYING = "data:image/gif;base64,R0lGODlhGAARAIABADExMf///yH/C05FVFNDQVBFMi4wAwEAAAAh/hFDcmVhdGVkIHdpdGggR0lNUAAh+QQJBQABACwEAAMAEQANAAACIIwPmcet2+IDUb7qLkZ6h/l1nBKSGQmeS8qAk3u98awUACH5BAUFAAEALAQABAARAAwAAAIejA+Zx63b4gNRvjCtwtfd7G0gk03lZ4poSp0spyoFACH5BAkFAAEALAQABAARAAwAAAIUjI+pG+DO0IOx2jPBzXv2D15iVQAAIfkEBQUAAQAsBAADABEADQAAAiCMjwa76cFaigDSaFm+le77fd7INWQZliamdqyawudSAAAh+QQJBQABACwEAAEAEQAPAAACFYyPBrvpwSJ7SVJkr968+w+G4kg+BQAh+QQJBQABACwEAAIAEQAOAAACIIyPBrvpwSJ7UsJ4a7N68g5kGyiGoImdZfl5ZKutKgwUACH5BAkFAAEALAQABAARAAwAAAIdjA+ZhwrhXozQ1bkoVjdvaX0gJ3YjZppa+KXlqhQAIfkECQUAAQAsBAAEABEADAAAAh+MD5mHCuEeg46qaVfM8e1efaAWjl45cpx4mWdrqlEBACH5BAkFAAEALAQAAwARAA0AAAIgjA+Zx63b4gNRvupuVmH2eXlgSI6UaJ7l+HGp6qbtMhUAIfkECQUAAQAsBAADABEADQAAAiCMD5nHrdviA/KFWdW1zuKuYZPojWFpUmS6nexqtstUAAAh+QQJBQABACwEAAMAEQANAAACIIwPmcet2+ID8oVZ1bXO4q59DCYi3jmFaEqR7OK+m6oUACH5BAkFAAEALAQABQARAAsAAAIdhB2HwayQVGsvnulkfVvz231Q+FmIeHqiOaIsWwAAIfkECQUAAQAsBAAEABEADAAAAh2EHambhwwdgEFKal3V+WzfIVc4jeEnnmaHlirnFAAh+QQJBQABACwEAAMAEQANAAACH4QdqZuHDB2AQUpqHc6P8b580yVWWkl+5rFm7aimRwEAIfkECQUAAQAsBAADABEADQAAAh+MjwbLndriC1G+6i5e1G0ufUDHkJg5iigaet+qtkwBACH5BAkFAAEALAQABAARAAwAAAIdhB2pcX2rnGONSjTvyxpY3H1eN1akKHJbqF6oUwAAIfkECQUAAQAsBAAFABEACwAAAhmEHYfKkPragvLEWa+ruDetMSC3Udx4ikwBACH5BAkFAAEALAQAAwARAA0AAAIfjA+Zx63b4gNhzvqwXXcrzXlUJ4JjSXqmmYZqa61TAQAh+QQFBQABACwEAAQAEQAMAAACHowPmYcK4R6DjiobV8SZ8w1mVyg+pOiVWqWarJo6BQAh+QQJBQABACwEAAQAEQAMAAACEYQdqXG4n5qDtNqLs968+48VACH5BAUFAAEALAQAAwARAA0AAAIfjI8Gy53aYpCRunozBlPjzoCftYnctpgmmaKnV6lRAQAh+QQJBQABACwEAAIAEQAOAAACEIyPBsudD6OctNqLs9685wIAIfkECQUAAQAsBAAEABEADAAAAh2Mjwa76cEie1LCeGuzevIOZBsohqCJnWX5eWS7FAAh+QQJBQABACwEAAUAEQALAAACHYwPmcet+0ALkb5ZY76a+y5toKWQnRmCaamu0FMAACH5BAEFAAEALAQABAARAAwAAAIejA+Zx63b4gNRvjCtwtfd7G0gk03lZ4poSp0spyoFADs="
 
 # https://stackoverflow.com/questions/72173741/how-to-give-permission-to-kivy-to-read-and-write-to-android-storage
+# https://github.com/kivy/python-for-android/issues/2032
 
 def img2dataurl(img):
     data = io.BytesIO()
@@ -189,7 +190,7 @@ class App(Tag.body):
         if "volume" not in self.state:
             self.state["volume"] = 1.0
         if "path" not in self.state:
-            folders=[i for i in ["/storage/emulated/0/Download","/"] if os.path.isdir(i)]
+            folders=[i for i in ["/storage/emulated/0","/"] if os.path.isdir(i)]
             self.state["path"] = folders[0]
         if "pls" not in self.state:
             self.state["pls"] = []

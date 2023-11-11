@@ -22,7 +22,7 @@ android.archs = arm64-v8a
 # android.archs = armeabi-v7a
 
 # (list) Permissions
-android.permissions = INTERNET,READ_EXTERNAL_STORAGE
+android.permissions = INTERNET,READ_EXTERNAL_STORAGE,MANAGE_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
 
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
