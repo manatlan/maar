@@ -1,5 +1,7 @@
 # MAAR (My Android Auto Radio)
 
+<img src="app/maar.png" width="100" height="100">
+
 With python3's [htag](https://github.com/manatlan/htag) module.
 
 Android's Apk built thru the [htagapk recipe](https://github.com/manatlan/htagapk)
