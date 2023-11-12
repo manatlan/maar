@@ -1,4 +1,4 @@
-#!/usr/bin/python3 -u
+#!python3.7 -u
 # -*- coding: utf-8 -*-
 """
 This is just a runner DevApp/ChromeApp (useful during dev process)
