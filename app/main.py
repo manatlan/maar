@@ -33,22 +33,20 @@ def img2dataurl(img):
     return u'data:image/png;base64,'+data64.decode()   
 
 def getimage(path):
-    tags = ID3(path)
-    #~ print("ID3 tags included in this song ------------------")
-    #~ print(tags.pprint())
-    #~ print("-------------------------------------------------")
     try:
+        tags = ID3(path)
+        #~ print("ID3 tags included in this song ------------------")
+        #~ print(tags.pprint())
+        #~ print("-------------------------------------------------")
         pict = tags.get("APIC:").data
-        im = Image.open(io.BytesIO(pict))
+        return Image.open(io.BytesIO(pict))
     except Exception as e:
         print("ERROR TAG",path,"--->",e)
-        im=None
-    return im
+        return None
 
 class LocalPlayer(Tag.div):
     statics="""
     .cover {width:200px;height:200px;border:2px solid red;cursor:pointer}
-    .bigbtn {font-size:1em;width:60px;height:60px}
     """
     def init(self,ll:list,volume:float,cbchange):
         self["style"]={"background":"#EEE","width":"100%","height":"100%"}
@@ -66,7 +64,7 @@ class LocalPlayer(Tag.div):
         self._btns=Tag.span("btns")
         self <= self._player
         
-        self <= Tag.div( self._img + self._title,_style="display:flex;flex-flow:row nowrap;width:100%;overflow-x:hidden")
+        self <= Tag.div( self._img + self._title, _class="main")
         
         self.change_volume()
         
@@ -141,6 +139,8 @@ class Paths(Tag.div):
 
 
     def list(self,path):
+        self.call( "window.scrollTo(0,0);" )
+
         try:
             folders=[]
             files=[]
@@ -173,7 +173,19 @@ class App(Tag.body):
         * {font-family: sans-serif;}
         body {font-size:2em}
 
+        .bigbtn {font-size:1em;width:60px;height:60px}
+
         .topright {position:fixed;top:10px;right:10px;z-index:1000}
+.main {
+    display:flex;
+    flex-flow:row nowrap;
+    width:100%;
+    overflow:hidden
+}
+@media screen and (max-width: 500px) {
+    // rules portrait (phone)
+    .main {flex-flow:column}
+}
 
     """,b"""
     function beep() {
