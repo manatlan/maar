@@ -109,8 +109,8 @@ class LocalPlayer(Tag.div):
             self._btns+="(%s)"%len(self._ll)
             
         self._player["src"]="/get/"+urllib.parse.quote(path)
-        self._player["onloadstart"] = f"this.volume={self._volume}"
-    
+        self._player["onloadstart"] = f"this.volume={self._volume};this.play()"
+
         im = getimage(path)
         if im:
             self._img["src"] = img2dataurl(im)
