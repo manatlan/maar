@@ -19,8 +19,8 @@ $ adb install -r bin/maar-0.1-arm64-v8a-debug.apk
 ```
 note: `buildozerm` is my docker image
 
-But currently, the app doesn't work like on a desktop (file access troubles, display troubles ...) <- i'm working on this
-(it's unusable on an android device now !!!)
+**IMPORTANT** : 
+You'll need to add manual rights for the app MAAR !!!
 
 ## notes
 

@@ -135,7 +135,8 @@ class Paths(Tag.div):
         self+= self.omain
         
         if not self.list(path):
-            self+=Tag.div(f"no rights ({path});-(")
+            self+=Tag.span(f"cant ({path});-(")
+            self+=Tag.span(f"Add android rights to MAAR !")
 
 
     def list(self,path):
@@ -149,7 +150,6 @@ class Paths(Tag.div):
                 if os.path.isdir( os.path.join(path,i) ):
                     folders.append( (i,os.path.join(path,i)) )
                 elif i.lower().endswith(".mp3"):
-                    #TODO: on android, listdir doesn't returns files ;-( ... WTF ? permissions ?
                     files.append( (i, os.path.join(path,i)) )
 
             olist=Tag.div()
