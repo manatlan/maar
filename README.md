@@ -5,7 +5,7 @@
 With python3's [htag](https://github.com/manatlan/htag) module.
 
 
-[to build an apk from the repo](buildozer.build)
+[to build an apk from the repo](buildozer_build.md)
 
 **IMPORTANT** : 
 You'll need to add manual rights, in maar/app settings !!!
