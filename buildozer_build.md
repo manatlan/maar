@@ -1,7 +1,6 @@
-
 # Recipe to build the apk
 
-The "github action recipe" does'nt work anymore ;-(. Because of [this bug](https://github.com/ArtemSBulgakov/buildozer-action/issues/34). So this recipe will user the buildozer's docker method.
+The "github action recipe" ([ArtemSBulgakov/buildozer-action@v1](https://github.com/ArtemSBulgakov/buildozer-action)) does'nt work anymore ;-(. Because of [this bug](https://github.com/ArtemSBulgakov/buildozer-action/issues/34). So this recipe will use the `buildozer's docker method`.
 
 ## Build a docker image -> mybuildozer
 In any folder, you will create a docker image, using buidolzer's sources from git (up to date)
