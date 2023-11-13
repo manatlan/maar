@@ -2,6 +2,8 @@
 
 The "github action recipe" ([ArtemSBulgakov/buildozer-action@v1](https://github.com/ArtemSBulgakov/buildozer-action)) does'nt work anymore ;-(. Because of [this bug](https://github.com/ArtemSBulgakov/buildozer-action/issues/34). So this recipe will use the `buildozer's docker method`.
 
+So now (2023/11/13) : this recipe is the official one to create an APK from an [Htag](https://github.com/manatlan/htag)'s app ;-)
+
 ## Build a docker image -> mybuildozer
 In any folder, you will create a docker image, using buidolzer's sources from git (up to date)
 ```bash
