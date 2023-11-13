@@ -6,9 +6,9 @@ as this runner use starlette+uvicorn, they should be availables
 """
 import sys
 
-MODE="dev" 
+# MODE="dev" 
 # MODE="phone"
-# MODE="ar"
+MODE="ar"
 
 
 try:

@@ -127,7 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-maar.json
 .buildozer/
 app/bin/
-
+maar.json
