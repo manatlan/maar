@@ -24,6 +24,8 @@ android.archs = arm64-v8a
 # (list) Permissions
 android.permissions = INTERNET,READ_EXTERNAL_STORAGE,MANAGE_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,READ_MEDIA_AUDIO,MEDIA_CONTENT_CONTROL
 
+android.accept_sdk_license = True
+
 # (str) Filename to the hook for p4a
 p4a.hook = p4a/hook.py
 
