@@ -31,7 +31,7 @@ mkdir .buildozer
 docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd {DOCKER} android {mode}
 """)
 
-def install(update=True):
+def install():
     assert subprocess.call("which adb",shell=True)==0,"install adb !"
 
     x=read_spec()
@@ -40,14 +40,10 @@ def install(update=True):
 
     apks=glob.glob(f"{CWD}/app/bin/{name}-*.apk")
     if apks:
-        if update:
-            print("UNINSTALL (preserving data & permissions)")
-            os.system(f"""adb shell cmd package uninstall -k {package}""")
-        else:
-            print("UNINSTALL fully")
-            os.system(f"""adb uninstall {package}""")
-
-        os.system(f"""adb install -d {apks[0]}""")
+        os.system(f"""
+adb uninstall {package}
+adb install -r -g {apks[0]}
+""")
     else:
         print("no apk in app/bin ?!")
 
@@ -64,7 +60,7 @@ if __name__=="__main__":
     elif args==["build"]:
         build()
     elif args==["install"]:
-        install(update=False)
+        install()
     elif args==["clean"]:
         clean()
     else:
