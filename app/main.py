@@ -305,6 +305,8 @@ body.empty button.next {display:none !important}
             btns += Tag.button("📀",_onclick=lambda o: self.root.action("ACTION_SHOW_PLAYER"),_class="bigbtn")
             btns += Tag.button("▶",_onclick=lambda o: self.root.action("ACTION_PLAY_FOLDER"),_class="bigbtn")
             btns += Tag.button("⊞",_onclick=lambda o: self.root.action("ACTION_BROWSE",folder="/storage"),_class="bigbtn")
+            btns += Tag.button("⊞",_onclick=lambda o: self.root.action("ACTION_BROWSE",folder="/mnt/media_rw"),_class="bigbtn")
+            btns += Tag.button("⊞",_onclick=lambda o: self.root.action("ACTION_BROWSE",folder="/mnt/usb_storage"),_class="bigbtn")
 
         self.folder=self.state["folder"]
         self._player = APlayer( self.onplayerevent,self.state["volume"] )
@@ -363,8 +365,7 @@ body.empty button.next {display:none !important}
         elif action == "ACTION_PLAY":
             self.call("beep()")
             pathzic=p.get("path")
-            folder=glob.escape(os.path.dirname( pathzic ))
-            ll=getzics(folder)
+            ll=getzics(os.path.dirname( pathzic ))
             random.shuffle(ll)
             ll.remove(pathzic)
             ll.insert(0,pathzic)
