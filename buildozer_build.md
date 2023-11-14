@@ -4,6 +4,8 @@ The "github action recipe" ([ArtemSBulgakov/buildozer-action@v1](https://github.
 
 So now (2023/11/13) : this recipe is the official one to create an APK from an [Htag](https://github.com/manatlan/htag)'s app ;-)
 
+2023/11/14 : take a look at [make.py](make.md), it's a command-line which should help you to create an apk (not related to this repo/maar) ! (it basically do all that is decribed bellow)
+
 ## Build a docker image -> mybuildozer
 In any folder, you will create a docker image, using buidolzer's sources from git (up to date)
 ```bash
@@ -49,4 +51,5 @@ docker run --interactive --tty --rm \
    --entrypoint /bin/bash \
    mybuidozer
 ```
+
 

@@ -1,4 +1,4 @@
-#!python3.7 -u
+#!/usr/local/bin/python3.7 -u
 # -*- coding: utf-8 -*-
 """
 This is just a runner DevApp/ChromeApp (useful during dev process)
@@ -7,8 +7,8 @@ as this runner use starlette+uvicorn, they should be availables
 import sys
 
 # MODE="dev" 
-# MODE="phone"
-MODE="ar"
+MODE="phone"
+# MODE="ar"
 
 
 try:
