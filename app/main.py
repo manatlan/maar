@@ -239,6 +239,7 @@ window.mytimer = window.setInterval( function() {
 
 
 #############################################################################
+
 class App(Tag.body):
     statics=Tag.style("""html,body {width:100%;height:100%;margin:0px;overflow-x:hidden}
         * {font-family: sans-serif;}
@@ -289,10 +290,6 @@ body.empty button.next {display:none !important}
     imports=[Paths,APlayer]
 
     def init(self):
-        self.cfgfile= os.path.join(FOLDER,"maar.json")
-        if os.path.isfile(self.cfgfile):
-            self.state.load( json.load(open(self.cfgfile,"r+")) )
-            
         if "volume" not in self.state:
             self.state["volume"] = 1.0
         if "folder" not in self.state:
@@ -308,10 +305,9 @@ body.empty button.next {display:none !important}
             btns += Tag.button("⊞",_onclick=lambda o: self.root.action("ACTION_BROWSE",folder="/mnt/media_rw"),_class="bigbtn")
             btns += Tag.button("⊞",_onclick=lambda o: self.root.action("ACTION_BROWSE",folder="/mnt/usb_storage"),_class="bigbtn")
 
-        self.folder=self.state["folder"]
         self._player = APlayer( self.onplayerevent,self.state["volume"] )
 
-        self.olist = Paths(self.onselectpath,path=self.folder)
+        self.olist = Paths(self.onselectpath,path=self.state["folder"])
         self.olist += btns
         self.oplayer=Tag.div( Player( self ) )
 
@@ -340,20 +336,17 @@ body.empty button.next {display:none !important}
             self.call("beep()")
             v=self._player.volume(0.1)
             self.state["volume"]=v
-            self._save_state()
         elif action == "ACTION_VOL-":
             self.call("beep()")
             v=self._player.volume(-0.1)
             self.state["volume"]=v
-            self._save_state()
         elif action == "ACTION_PLAYZIC":
             self.playzic()
         elif action == "ACTION_NEXT":
             isbeep=p.get("beep",True)
             if isbeep: self.call("beep()")
             if self.state["pls"]:
-                self.state["pls"].pop(0)    #<- pop
-                self._save_state()
+                self.state["pls"]=self.state["pls"][1:]     #<- pop
                 self.action("ACTION_PLAYZIC")
 
         elif action == "ACTION_BROWSE":
@@ -361,7 +354,6 @@ body.empty button.next {display:none !important}
             folder=p.get("folder")
             if self.olist.list(folder):
                 self.state["folder"]=folder
-                self._save_state()
         elif action == "ACTION_PLAY":
             self.call("beep()")
             pathzic=p.get("path")
@@ -371,7 +363,6 @@ body.empty button.next {display:none !important}
             ll.insert(0,pathzic)
 
             self.state["pls"] = ll
-            self._save_state()
 
             self.playzic()
             self.action("ACTION_SHOW_PLAYER")
@@ -381,7 +372,6 @@ body.empty button.next {display:none !important}
             random.shuffle(ll)
 
             self.state["pls"] = ll
-            self._save_state()
 
             self.playzic()
             self.action("ACTION_SHOW_PLAYER")
@@ -410,11 +400,6 @@ body.empty button.next {display:none !important}
         else:
             self.call("document.body.classList.add('empty')")
 
-    def _save_state(self):
-        print("*********** SAVE STATE:",self.state["volume"],self.state["folder"],len(self.state["pls"]))
-        with open(self.cfgfile,"w+") as fid:
-            fid.write(json.dumps(self.state.export()))
-
 
 if __name__=="__main__":
 
@@ -426,7 +411,7 @@ if __name__=="__main__":
     logging.getLogger("asyncio").setLevel( logging.ERROR )
 
     from htag.runners import AndroidApp
-    app=AndroidApp( App )
+    app=AndroidApp( App, file=os.path.join(FOLDER,"maar.json") )
 
     #=======================================================
     import tornado.web
