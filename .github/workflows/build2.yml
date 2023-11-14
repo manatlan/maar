@@ -10,25 +10,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install docker git
+      - name: Install docker & git
         run: |
           sudo apt install docker git
+          sudo groupadd docker
+          sudo usermod -aG docker $USER
+          newgrp docker
           
-      - name: build a docker image
-        run: |
-           git clone https://github.com/kivy/buildozer.git
-           cd buildozer
-           docker build --tag=mybuildozer .
-           cd ..
-
       - name: build the apk
         run: |
+            python3 make.py init
+            python3 make.py build
+
+      - name: rename the apk
+        run: |
            cd app
-           mkdir .buildozer
-           chmod 777 .buildozer
-           sudo docker run -v $(pwd)/.buildozer:/home/user/.buildozer -v $(pwd):/home/user/hostcwd mybuildozer android debug
            mv bin/*.apk bin/app.apk
         
       # - name: Build with Buildozer
