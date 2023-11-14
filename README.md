@@ -4,11 +4,8 @@
 
 With python3's [htag](https://github.com/manatlan/htag) module.
 
+To build the apk, use [make.py](make.md), it's a command-line which should help you to create an apk.
 
-[to build an apk from the repo](buildozer_build.md)
-
-**IMPORTANT** : 
-You'll need to add manual rights, in maar/app settings !!!
 
 ## notes
 
