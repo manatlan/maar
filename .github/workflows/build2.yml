@@ -18,9 +18,12 @@ jobs:
           sudo usermod -aG docker $USER
           newgrp docker
           
-      - name: build the apk
+      - name: init the docker buildozer image
         run: |
             python3 make.py init
+
+      - name: build the apk
+        run: |
             python3 make.py build
 
       - name: rename the apk
