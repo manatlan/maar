@@ -16,3 +16,7 @@ It's just to try if an android apk, using htag, can replace the current app.
 
 You an test the [APK on appetize](https://appetize.io/app/gutxl5u4tznjq4v6ocu3peinba)
 
+<img src="screenshot.png" width="250"> 
+
+Basically, it's a "folder browser" which let you play mp3s. It will automatically create a playlist of random ones (those in the same or children/descending folders).  You can play/pause by clicking on the cover (issued from mp3 tag), or increase/decrease volume
+And when it restarts, it will continue where it ended. (the 3 square/cross buttons are other paths on the device (usb/mass storage), to try ;-)).
