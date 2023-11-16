@@ -13,3 +13,6 @@ This is a POC, just to see if the whole idea is OK.
 
 history:  I've got an android auto radio, with a 1280x480 (6.86") ... I don't like the current music player. So i try to replace it with something of my own.
 It's just to try if an android apk, using htag, can replace the current app.
+
+You an test the [APK on appetize](https://appetize.io/app/gutxl5u4tznjq4v6ocu3peinba)
+
