@@ -4,7 +4,9 @@
 
 With python3's [htag](https://github.com/manatlan/htag) module.
 
-To build the apk, use [make.py](make.md), it's a command-line which should help you to create an apk.
+Android's Apk built thru the [htagapk recipe](https://github.com/manatlan/htagapk)
+
+To build : you can use the **Build github's action** or [make.py](make.md)
 
 
 ## notes
