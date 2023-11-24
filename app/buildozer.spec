@@ -14,8 +14,8 @@ presplash.filename = %(source.dir)s/maar.png
 icon.filename = %(source.dir)s/maar.png
 
 version = 0.2
-#requirements = python3,kivy,tornado,htag>=0.66.0,mutagen,Pillow
 #--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
+#requirements = python3,kivy,tornado,htag>=0.66.0,mutagen,Pillow
 requirements = Cython==0.29.33,kivy==2.2.0,tornado,htag>=0.66.0,mutagen,Pillow
 #---------------------------------------------------------
 
@@ -30,7 +30,7 @@ android.permissions = INTERNET,READ_EXTERNAL_STORAGE,MANAGE_EXTERNAL_STORAGE,WRI
 android.accept_sdk_license = True
 
 # (str) Filename to the hook for p4a
-#p4a.hook = p4a/hook.py
+p4a.hook = p4a/hook.py
 #--------------------------------------------------------- https://github.com/ArtemSBulgakov/buildozer-action/issues/34
 p4a.branch = release-2022.12.20
 #---------------------------------------------------------
